@@ -11,7 +11,7 @@ function Cart({ close, apples = [], setApples, cartIds, setCartIds }) {
     if (!token) return alert("Жүйеге кіріңіз");
 
     try {
-      await axios.delete(`http://localhost:3000/cart/${phone_id}`, {
+      await axios.delete(`https://iphone-backend.onrender.com/cart/${phone_id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -29,7 +29,7 @@ function Cart({ close, apples = [], setApples, cartIds, setCartIds }) {
     if (!token) return alert("Жүйеге кіріңіз");
 
     try {
-      await axios.patch(`http://localhost:3000/cart/${phone_id}`, {
+      await axios.patch(`https://iphone-backend.onrender.com/cart/${phone_id}`, {
         quantity: newQty
       }, {
         headers: { Authorization: `Bearer ${token}` }
