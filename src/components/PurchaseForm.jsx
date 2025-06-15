@@ -17,7 +17,7 @@ function PurchaseForm({ onClose }) {
 
     try {
       setLoading(true);
-      await axios.post("https://iphone-backend.onrender.com/purchase", {}, {
+      await axios.post("http://localhost:3000/purchase", {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

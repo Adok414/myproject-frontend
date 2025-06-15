@@ -18,7 +18,7 @@ function Header({ cartIds, setCartIds }) {
     const token = localStorage.getItem('token');
     if (token) {
       axios 
-        .get("https://iphone-backend.onrender.com/cart", {headers: {Authorization: `Bearer ${token}`}})
+        .get("http://localhost:3000/cart", {headers: {Authorization: `Bearer ${token}`}})
         .then((res) => {
           setCartData(res.data);
           setCartIds(res.data.map(item => item.phone_id));
@@ -34,7 +34,7 @@ function Header({ cartIds, setCartIds }) {
     const token = localStorage.getItem('token');
     if(token) {
       axios
-        .get("https://iphone-backend.onrender.com/profile", {headers: {Authorization: `Bearer ${token}`}})
+        .get("http://localhost:3000/profile", {headers: {Authorization: `Bearer ${token}`}})
         .then(res => setUsername(res.data.first_name))
         .catch(err => console.log(err.message));
     }
