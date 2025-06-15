@@ -13,7 +13,7 @@ function AppleCard({ apple, cartIds, setCartIds }) {
     }
 
     axios
-      .post("http://iphone-backend.onrender.com/cart", { phone_id: apple.phone_id, quantity: 1 }, {
+      .post("https://iphone-backend.onrender.com/cart", { phone_id: apple.phone_id, quantity: 1 }, {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => {

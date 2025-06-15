@@ -18,7 +18,7 @@ function Header({ cartIds, setCartIds }) {
     const token = localStorage.getItem('token');
     if (token) {
       axios 
-        .get("http://iphone-backend.onrender.com/cart", {headers: {Authorization: `Bearer ${token}`}})
+        .get("https://iphone-backend.onrender.com/cart", {headers: {Authorization: `Bearer ${token}`}})
         .then((res) => {
           setCartData(res.data);
           setCartIds(res.data.map(item => item.phone_id));
