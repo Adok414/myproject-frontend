@@ -5,18 +5,39 @@ import App from './App.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AppleDetails from './components/AppleDetails.jsx'
 import Layout from './components/Layout.jsx'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+function RootWrapper() {
+  const [cartIds, setCartIds] = useState([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      axios.get("http://localhost:3000/cart", {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then(res => {
+        const ids = res.data.map(item => item.phone_id);
+        setCartIds(ids);
+      });
+    }
+  }, []);
+
+  return (
+    <BrowserRouter>
+      <Layout cartIds={cartIds} setCartIds={setCartIds}>
+        <Routes>
+          <Route path='/' element={<App cartIds={cartIds} setCartIds={setCartIds} />} />
+          <Route path='/Apples/:id' element={<AppleDetails cartIds={cartIds} setCartIds={setCartIds} />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
+  );
+}
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Layout>
-      <BrowserRouter>
-        <Routes>
-            <Route path='/' element={<App />} />
-            <Route path='/Apples/:id' element={<AppleDetails />} />
-        </Routes>
-    </BrowserRouter>
-    </Layout>
-    
-  
-  </StrictMode>,
-)
+    <RootWrapper />
+  </StrictMode>
+);

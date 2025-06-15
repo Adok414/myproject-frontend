@@ -1,19 +1,17 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
 
-function Layout({ children }) {
+function Layout({ children, cartIds, setCartIds }) {
   return (
     <div className='flex flex-col h-screen justify-between'>
-        <Header />
-        <div className='flex-1'>
-            {
-                children
-            }
-        </div>
-        <Footer />
+      <Header cartIds={cartIds} setCartIds={setCartIds} />
+      <div className='flex-1'>
+        {children}
+      </div>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default Layout
+export default Layout;
