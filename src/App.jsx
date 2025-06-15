@@ -12,7 +12,7 @@ function App({ cartIds, setCartIds }) {
   const [apples, setApples] = useState([]);
   
   useEffect(() => {
-    axios.get("${import.meta.env.VITE_API_BASE_URL}/phones")
+    axios.get("http://iphone-backend.onrender.com/phones")
     .then(res => setApples(res.data))
     .catch(err => alert(err.message));
   }, []);

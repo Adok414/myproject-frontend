@@ -8,7 +8,7 @@ function AppleDetails({ cartIds, setCartIds }) {
   const added = cartIds?.includes(phone_id);
 
   useEffect(() => {
-    axios.get('${import.meta.env.VITE_API_BASE_URL}/phones/' + phone_id)
+    axios.get('https://iphone-backend.onrender.com/phones/' + phone_id)
       .then(res => setPhones(res.data))
       .catch(err => alert(err.message));
   }, [phone_id]);
@@ -18,7 +18,7 @@ function AppleDetails({ cartIds, setCartIds }) {
     if (!token) return alert("Алдымен жүйеге кіріңіз.");
 
     try {
-      await axios.post("${import.meta.env.VITE_API_BASE_URL}/cart", {
+      await axios.post("https://iphone-backend.onrender.com/cart", {
         phone_id: phone_id,
         quantity: 1
       }, {

@@ -14,7 +14,7 @@ function RootWrapper() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      axios.get("${import.meta.env.VITE_API_BASE_URL}/cart", {
+      axios.get("https://iphone-backend.onrender.com/cart", {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => {
