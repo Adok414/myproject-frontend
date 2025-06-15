@@ -16,7 +16,7 @@ function Auth({ close }) {
 
    async function register(e) {
     e.preventDefault();
-    axios.post("https://iphone-backend.onrender.com/register", registerData)
+    axios.post("${import.meta.env.VITE_API_BASE_URL}/register", registerData)
     .then((res) => {
       alert("Тіркелу сәтті өтті! Енді жүйеге қайта кіріңіз.");
       setIsRegistration(false);
@@ -26,7 +26,7 @@ function Auth({ close }) {
 
    async function login(e) {
     e.preventDefault();
-    axios.post("https://iphone-backend.onrender.com/login", loginData)
+    axios.post("${import.meta.env.VITE_API_BASE_URL}/login", loginData)
     .then((res) => {
       const token = res.data.token;
       localStorage.setItem('token', token);

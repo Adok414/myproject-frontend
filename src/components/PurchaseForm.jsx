@@ -17,7 +17,7 @@ function PurchaseForm({ onClose }) {
 
     try {
       setLoading(true);
-      await axios.post("https://iphone-backend.onrender.com/purchase", {}, {
+      await axios.post("${import.meta.env.VITE_API_BASE_URL}/purchase", {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
