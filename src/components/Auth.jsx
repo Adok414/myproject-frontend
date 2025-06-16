@@ -16,7 +16,7 @@ function Auth({ close }) {
 
    async function register(e) {
     e.preventDefault();
-    axios.post("http://localhost:3000/register", registerData)
+    axios.post("https://backend-4k8j.onrender.com/register", registerData)
     .then((res) => {
       alert("Тіркелу сәтті өтті! Енді жүйеге қайта кіріңіз.");
       setIsRegistration(false);
@@ -26,7 +26,7 @@ function Auth({ close }) {
 
    async function login(e) {
     e.preventDefault();
-    axios.post("http://localhost:3000/login", loginData)
+    axios.post("https://backend-4k8j.onrender.com/login", loginData)
     .then((res) => {
       const token = res.data.token;
       localStorage.setItem('token', token);

@@ -8,7 +8,7 @@ function AppleDetails({ cartIds, setCartIds }) {
   const added = cartIds?.includes(phone_id);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/phones/' + phone_id)
+    + axios.get('https://backend-4k8j.onrender.com/phones/' + phone_id)
       .then(res => setPhones(res.data))
       .catch(err => alert(err.message));
   }, [phone_id]);
@@ -18,7 +18,7 @@ function AppleDetails({ cartIds, setCartIds }) {
     if (!token) return alert("Алдымен жүйеге кіріңіз.");
 
     try {
-      await axios.post("http://localhost:3000/cart", {
+      + await axios.post("https://backend-4k8j.onrender.com/cart", {
         phone_id: phone_id,
         quantity: 1
       }, {

@@ -17,7 +17,7 @@ function PurchaseForm({ onClose }) {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:3000/purchase", {}, {
+      await axios.post("https://backend-4k8j.onrender.com/purchase", {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

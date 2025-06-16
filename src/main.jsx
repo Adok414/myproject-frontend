@@ -14,7 +14,7 @@ function RootWrapper() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      axios.get("http://localhost:3000/cart", {
+      axios.get("https://backend-4k8j.onrender.com/cart", {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => {
