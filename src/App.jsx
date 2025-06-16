@@ -12,7 +12,7 @@ function App({ cartIds, setCartIds }) {
   const [apples, setApples] = useState([]);
   
   useEffect(() => {
-    axios.get("https://backend-4k8j.onrender.com/phones")
+    axios.get("http://localhost:3000/phones")
     .then(res => setApples(res.data))
     .catch(err => alert(err.message));
   }, []);
