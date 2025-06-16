@@ -22,7 +22,7 @@ function PurchaseForm({ onClose }) {
       });
 
       alert("Сатып алу сәтті өтті!");
-      onClose(); // модалды жабу
+      onClose(); 
 
     } catch (err) {
       alert(err.response?.data?.error || err.message);
