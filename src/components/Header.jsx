@@ -5,7 +5,7 @@ import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import Cart from './Cart';
 import Auth from './Auth';
-import axios from 'axios';
+import axios from "./axios";
 
 
 // Бұл компонент жоғарғы панель (header) ретінде жұмыс істейді: логотип, корзина, авторизацияны қамтиды
@@ -23,7 +23,7 @@ function Header({ cartIds, setCartIds }) {
     const token = localStorage.getItem('token');
     if (token) {
       axios 
-        .get("http://localhost:3000/cart", {headers: {Authorization: `Bearer ${token}`}})
+        .get("/cart", {headers: {Authorization: `Bearer ${token}`}})
         .then((res) => {
           setCartData(res.data);                              // Корзина товарларын сақтау
           setCartIds(res.data.map(item => item.phone_id));    // Корзина ID-ларын жаңарту
@@ -41,7 +41,7 @@ function Header({ cartIds, setCartIds }) {
     const token = localStorage.getItem('token');
     if(token) {
       axios
-        .get("http://localhost:3000/profile", {headers: {Authorization: `Bearer ${token}`}})
+        .get("/profile", {headers: {Authorization: `Bearer ${token}`}})
         .then(res => setUsername(res.data.first_name))
         .catch(err => console.log(err.message));
     }

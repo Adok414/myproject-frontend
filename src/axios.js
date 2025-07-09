@@ -1,5 +1,8 @@
+// src/axios.js
 import axios from "axios";
 
-axios.defaults.baseURL = "https://myproject-backend-46di.onrender.com";
+const instance = axios.create({
+  baseURL: "https://myproject-backend-46di.onrender.com", // Міне, дұрыс backend URL
+});
 
-export default axios;
+export default instance;

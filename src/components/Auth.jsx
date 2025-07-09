@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "./axios";
 import React, { useState } from 'react'
 
 
@@ -16,7 +16,7 @@ function Auth({ close }) {
    //  Тіркелу мәліметін серверге жібереді
    async function register(e) {                                        //Форма submit болғанда бетті жаңартпау үшін e.preventDefault() колданылады
     e.preventDefault();
-    axios.post("http://localhost:3000/register", registerData)         //registerData мәліметін серверге /register маршрутына POST сұраныспен жібереді
+    axios.post("/register", registerData)         //registerData мәліметін серверге /register маршрутына POST сұраныспен жібереді
     .then((res) => { 
       alert("Тіркелу сәтті өтті! Енді жүйеге қайта кіріңіз.");
       setIsRegistration(false);                                       // Тіркелген соң кіру формасына ауысу
@@ -27,7 +27,7 @@ function Auth({ close }) {
    //  Жүйеге кіру сұранысын жіберу
    async function login(e) {                                         //Кіру деректерін серверге жібереді, токенді сақтайды
     e.preventDefault();
-    axios.post("http://localhost:3000/login", loginData)             //Email мен құпиясөзді серверге /login арқылы жібереді
+    axios.post("/login", loginData)             //Email мен құпиясөзді серверге /login арқылы жібереді
     .then((res) => {
       const token = res.data.token;                                  // Токенді сақтау
       localStorage.setItem('token', token);                          //Серверден JWT токен алады  ,  Токенді localStorage ішіне сақтайды

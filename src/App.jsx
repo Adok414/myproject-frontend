@@ -3,7 +3,7 @@ import AppleIcon from '@mui/icons-material/Apple';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import LaptopMacIcon from '@mui/icons-material/LaptopMac';
 import AppleCard from './components/AppleCard';     
-import axios from 'axios';
+import axios from "./axios";
 
 import './App.css'
 
@@ -14,7 +14,7 @@ function App({ cartIds, setCartIds }) {
   const [apples, setApples] = useState([]);                             // Барлық өнімдердің тізімі бастапкыда бос сосын аксиос аркылы серверден алады списокты
    
   useEffect(() => {                                                     // Компонент жүктелген кезде айфон списогын серверден алады
-    axios.get("http://localhost:3000/phones")
+    axios.get("/phones")
     .then(res => setApples(res.data))                                   // айфондардын списогын күйге(state) сақтау  
     .catch(err => alert(err.message));
   }, []);

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from "./axios";
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -16,7 +16,7 @@ function AppleCard({ apple, cartIds, setCartIds }) {
     }
 
     axios
-      .post("http://localhost:3000/cart", { phone_id: apple.phone_id, quantity: 1 }, {    //жыберылетын деректер
+      .post("/cart", { phone_id: apple.phone_id, quantity: 1 }, {    //жыберылетын деректер
         headers: { Authorization: `Bearer ${token}` }              //токенды косу
       })
       .then(res => {

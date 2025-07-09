@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from "./axios";
 import { useParams } from 'react-router-dom';
 
 
@@ -14,7 +14,7 @@ function AppleDetails({ cartIds, setCartIds }) {
 
   // Компонент жүктелген кезде серверден осы товар туралы мәлімет алу
   useEffect(() => {                                                      //Компонент жүктелгенде немесе phone_id өзгерсе, ішіндегі код орындалады
-    axios.get('http://localhost:3000/phones/' + phone_id)                 //Серверге GET /phones/:id сұранысы жіберіледі (мысалы, /phones/7)
+    axios.get('/phones/' + phone_id)                 //Серверге GET /phones/:id сұранысы жіберіледі (мысалы, /phones/7)
       .then(res => setPhones(res.data))                                   //Серверден келген мәліметті күйге (state) сақтайды
       .catch(err => alert(err.message));
   }, [phone_id]);
@@ -26,7 +26,7 @@ function AppleDetails({ cartIds, setCartIds }) {
     if (!token) return alert("Алдымен жүйеге кіріңіз.");
 
     try {
-      await axios.post("http://localhost:3000/cart", {                  //Серверге POST /cart деген сұраныс жібереді
+      await axios.post("/cart", {                  //Серверге POST /cart деген сұраныс жібереді
         phone_id: phone_id,
         quantity: 1
       }, {

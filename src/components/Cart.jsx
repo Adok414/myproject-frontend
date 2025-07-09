@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CancelIcon from '@mui/icons-material/Cancel';
 import PurchaseForm from './PurchaseForm';         // Сатып алу формасы
-import axios from 'axios';
+import axios from "./axios";
 
 
 
@@ -17,7 +17,7 @@ function Cart({ close, apples = [], setApples, cartIds, setCartIds }) {
     if (!token) return alert("Жүйеге кіріңіз");
 
     try {
-      await axios.delete(`http://localhost:3000/cart/${phone_id}`, {                 //Серверге DELETE сұранысы жіберіледі
+      await axios.delete(`/cart/${phone_id}`, {                 //Серверге DELETE сұранысы жіберіледі
         headers: { Authorization: `Bearer ${token}` }                                //Токен — headers ішіне қосылады (пайдаланушыны тану үшін)
       });
       
@@ -37,7 +37,7 @@ function Cart({ close, apples = [], setApples, cartIds, setCartIds }) {
     if (!token) return alert("Жүйеге кіріңіз");
 
     try {
-      await axios.patch(`http://localhost:3000/cart/${phone_id}`, {              //Серверге PATCH сұранысы жіберіледі (деректі жартылай жаңарту)
+      await axios.patch(`/cart/${phone_id}`, {              //Серверге PATCH сұранысы жіберіледі (деректі жартылай жаңарту)
         quantity: newQty                                                          // жаңа мән жіберіледі
       }, {
         headers: { Authorization: `Bearer ${token}` }

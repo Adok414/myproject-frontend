@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from "./axios";
 
 
 // Бұл компонент қолданушының аты, мекенжайы және телефон нөмірін жинап, сатып алуды растайды
@@ -24,7 +24,7 @@ function PurchaseForm({ onClose }) {
 
     try {
       setLoading(true);                  // кнопка "Жүктелуде..." деп өзгереді
-      await axios.post("http://localhost:3000/purchase", {}, {                            //POST /purchase деген маршрутқа сұраныс жібереді,  Мәлімет бос ({}), бірақ сервер ішінде ол req.user.id арқылы user_id алып, дерекқорға тапсырысты жазады
+      await axios.post("/purchase", {}, {                            //POST /purchase деген маршрутқа сұраныс жібереді,  Мәлімет бос ({}), бірақ сервер ішінде ол req.user.id арқылы user_id алып, дерекқорға тапсырысты жазады
         headers: { Authorization: `Bearer ${token}` }
       });
 
