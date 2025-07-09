@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from "./axios";
+import axios from 'axios';
 
 
 // Бұл компонент қолданушының аты, мекенжайы және телефон нөмірін жинап, сатып алуды растайды

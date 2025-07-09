@@ -3,7 +3,7 @@ import AppleIcon from '@mui/icons-material/Apple';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import LaptopMacIcon from '@mui/icons-material/LaptopMac';
 import AppleCard from './components/AppleCard';     
-import axios from "./axios";
+import axios from 'axios';
 
 import './App.css'
 

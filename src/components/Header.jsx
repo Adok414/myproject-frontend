@@ -5,7 +5,7 @@ import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import Cart from './Cart';
 import Auth from './Auth';
-import axios from "./axios";
+import axios from 'axios';
 
 
 // Бұл компонент жоғарғы панель (header) ретінде жұмыс істейді: логотип, корзина, авторизацияны қамтиды

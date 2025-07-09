@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CancelIcon from '@mui/icons-material/Cancel';
 import PurchaseForm from './PurchaseForm';         // Сатып алу формасы
-import axios from "./axios";
+import axios from 'axios';
 
 
 
